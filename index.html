@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MODERNWEB — Nowoczesne strony internetowe</title>
 <meta name="description" content="MODERNWEB — projektowanie nowoczesnych stron internetowych dla firm.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -108,7 +109,10 @@ nav {
   pointer-events: none;
 }
 
-.hero-content { max-width: 850px; position: relative; }
+.hero-content {
+  max-width: 850px;
+  position: relative;
+}
 
 .eyebrow {
   color: var(--accent);
@@ -152,11 +156,14 @@ h1 span { color: var(--accent); }
   align-items: center;
   justify-content: center;
   transition: .3s;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .btn-primary {
   background: var(--accent);
   color: #10140c;
+  border: 1px solid var(--accent);
 }
 
 .btn-primary:hover {
@@ -166,6 +173,8 @@ h1 span { color: var(--accent); }
 
 .btn-secondary {
   border: 1px solid #ffffff35;
+  background: transparent;
+  color: white;
 }
 
 .btn-secondary:hover { background: #ffffff12; }
@@ -209,9 +218,7 @@ section { padding: 110px 0; }
   max-width: 550px;
 }
 
-.projects {
-  background: #0d1014;
-}
+.projects { background: #0d1014; }
 
 .project-grid {
   display: grid;
@@ -235,7 +242,6 @@ section { padding: 110px 0; }
 
 .project-image {
   height: 280px;
-  position: relative;
   overflow: hidden;
   background: #171d22;
 }
@@ -320,7 +326,30 @@ section { padding: 110px 0; }
   margin: 0 auto;
 }
 
-.contact .btn { margin-top: 35px; }
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.contact-email {
+  color: var(--muted);
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.contact-email span {
+  color: var(--accent);
+}
+
+#copy-message {
+  color: var(--accent);
+  font-size: 13px;
+  margin-top: 12px;
+  min-height: 20px;
+}
 
 footer {
   padding: 30px 0;
@@ -368,9 +397,11 @@ footer {
 </header>
 
 <main>
+
 <section class="hero">
   <div class="container">
     <div class="hero-content">
+
       <div class="eyebrow">MODERN WEB DESIGN STUDIO</div>
 
       <h1>
@@ -392,21 +423,24 @@ footer {
       <div class="hero-bottom">
         <div>
           <strong>03</strong>
-          ZREALIZOWANE KONCEPTY
+          KONCEPTY DEMONSTRACYJNE
         </div>
         <div>
           <strong>100%</strong>
           ZAANGAŻOWANIA
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <section class="projects" id="projekty">
   <div class="container">
-    <div class="section-label">MOJE REALIZACJE / 01—03</div>
+
+    <div class="section-label">MOJE PROJEKTY / 01—03</div>
     <h2 class="section-title">Wybrane projekty.</h2>
+
     <p class="section-description">
       Każdy projekt to inna branża, inny charakter i indywidualne
       podejście do prezentacji marki.
@@ -456,6 +490,7 @@ footer {
 
 <section id="o-mnie">
   <div class="container about-grid">
+
     <div class="about-box">
       <div class="big">MODERN<br>WEB.</div>
       <p>Nowoczesny design. Przemyślane rozwiązania. Profesjonalny wizerunek.</p>
@@ -464,34 +499,55 @@ footer {
     <div class="about-text">
       <div class="section-label">KIM JESTEM / 04</div>
       <h2 class="section-title">Dobry wizerunek zaczyna się w internecie.</h2>
+
       <p>
         MODERNWEB to moje miejsce do tworzenia nowoczesnych
         stron internetowych dla firm i lokalnych biznesów.
       </p>
+
       <p>
         Stawiam na estetykę, czytelność i indywidualne podejście
         do każdego projektu. Chcę, aby każda strona wyróżniała
         markę i dobrze prezentowała jej ofertę.
       </p>
     </div>
+
   </div>
 </section>
 
 <section class="contact" id="kontakt">
   <div class="container">
+
     <div class="section-label">ZACZNIJMY WSPÓŁPRACĘ / 05</div>
+
     <h2 class="section-title">Masz pomysł na<br>nową stronę?</h2>
+
     <p class="section-description">
       Stwórzmy razem nowoczesną obecność Twojej firmy w internecie.
       Napisz do mnie i opowiedz o swoim projekcie.
     </p>
 
-    <!-- ZAMIEŃ ADRES NA SWÓJ PRAWDZIWY E-MAIL -->
-    <a href="mailto:modern.web.cre@gmail.com" class="btn btn-primary">
-      Napisz wiadomość ↗
-    </a>
+    <div class="contact-buttons">
+
+      <a id="gmail-button" href="#" target="_blank" rel="noopener" class="btn btn-primary">
+        Napisz wiadomość ↗
+      </a>
+
+      <button id="copy-button" type="button" class="btn btn-secondary">
+        Kopiuj adres e-mail
+      </button>
+
+    </div>
+
+    <p class="contact-email">
+      Kontakt: <span id="email-display"></span>
+    </p>
+
+    <p id="copy-message" aria-live="polite"></p>
+
   </div>
 </section>
+
 </main>
 
 <footer>
@@ -501,6 +557,41 @@ footer {
     <div>Designed with purpose.</div>
   </div>
 </footer>
+
+<script>
+/* W TYM JEDNYM MIEJSCU WPISZ SWÓJ PRAWDZIWY ADRES GMAIL */
+const CONTACT_EMAIL = "modern.web.cre@gmail.com";
+
+const gmailButton = document.getElementById("gmail-button");
+const copyButton = document.getElementById("copy-button");
+const emailDisplay = document.getElementById("email-display");
+const copyMessage = document.getElementById("copy-message");
+
+const gmailUrl = new URL("https://mail.google.com/mail/");
+gmailUrl.searchParams.set("view", "cm");
+gmailUrl.searchParams.set("fs", "1");
+gmailUrl.searchParams.set("to", CONTACT_EMAIL);
+gmailUrl.searchParams.set("su", "Zapytanie o stronę internetową");
+
+gmailButton.href = gmailUrl.toString();
+emailDisplay.textContent = CONTACT_EMAIL;
+
+copyButton.addEventListener("click", async function() {
+  try {
+    await navigator.clipboard.writeText(CONTACT_EMAIL);
+    copyButton.textContent = "Skopiowano!";
+    copyMessage.textContent = "Adres e-mail został skopiowany.";
+    
+    setTimeout(function() {
+      copyButton.textContent = "Kopiuj adres e-mail";
+      copyMessage.textContent = "";
+    }, 2500);
+
+  } catch (error) {
+    copyMessage.textContent = "Nie udało się skopiować. Zaznacz adres e-mail i skopiuj go ręcznie.";
+  }
+});
+</script>
 
 </body>
 </html>
