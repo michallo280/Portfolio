@@ -1,545 +1,831 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MODERNWEB — Nowoczesne strony internetowe</title>
-<meta name="description" content="MODERNWEB — projektowanie nowoczesnych stron internetowych dla firm.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>MODERNWEB — Nowoczesne strony internetowe</title>
 
-<style>
-:root {
-  --bg: #090b0e;
-  --panel: #11151a;
-  --text: #f4f5f6;
-  --muted: #9299a3;
-  --accent: #a5f36b;
-}
+    <meta name="description" content="MODERNWEB — projektowanie nowoczesnych stron internetowych dla firm i lokalnych biznesów.">
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-html { scroll-behavior: smooth; }
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
-}
+    <style>
+        :root {
+            --bg: #090b0e;
+            --card: #11151a;
+            --accent: #a5f36b;
+            --white: #f5f7f2;
+            --muted: #929a94;
+            --border: rgba(255,255,255,0.09);
+        }
 
-a { color: inherit; text-decoration: none; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-  width: min(1160px, 90%);
-  margin: auto;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-header {
-  height: 86px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #ffffff12;
-}
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+        }
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-.logo {
-  font-family: 'Manrope', sans-serif;
-  font-size: 23px;
-  font-weight: 800;
-  letter-spacing: -1px;
-}
+        .container {
+            width: min(1150px, 90%);
+            margin: auto;
+        }
 
-.logo span { color: var(--accent); }
+        /* NAWIGACJA */
 
-.nav-links {
-  display: flex;
-  gap: 34px;
-  color: var(--muted);
-  font-size: 14px;
-}
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            border-bottom: 1px solid var(--border);
+        }
 
-.nav-links a:hover { color: white; }
+        nav {
+            height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-.nav-contact {
-  border: 1px solid #ffffff35;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-size: 13px;
-  transition: .3s;
-}
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
 
-.nav-contact:hover {
-  background: var(--accent);
-  color: #10140c;
-  border-color: var(--accent);
-}
+        .logo span {
+            color: var(--accent);
+        }
 
-.hero {
-  min-height: 690px;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  right: -100px;
-  top: 70px;
-  background: #a5f36b;
-  opacity: .08;
-  filter: blur(130px);
-  border-radius: 50%;
-  pointer-events: none;
-}
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: .3s;
+        }
 
-.hero-content {
-  max-width: 850px;
-  position: relative;
-}
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-.eyebrow {
-  color: var(--accent);
-  font-size: 12px;
-  letter-spacing: 3px;
-  font-weight: 700;
-  margin-bottom: 30px;
-}
+        .nav-contact {
+            border: 1px solid var(--accent);
+            padding: 12px 20px;
+            border-radius: 5px;
+            color: var(--accent) !important;
+        }
 
-h1 {
-  font-family: 'Manrope', sans-serif;
-  font-size: clamp(48px, 8vw, 94px);
-  line-height: 1.04;
-  letter-spacing: -5px;
-  font-weight: 800;
-}
+        .nav-contact:hover {
+            background: var(--accent);
+            color: #090b0e !important;
+        }
 
-h1 span { color: var(--accent); }
+        /* HERO */
 
-.hero-description {
-  max-width: 520px;
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 17px;
-  margin-top: 30px;
-}
+        .hero {
+            min-height: 760px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 150px 0 100px;
+            background:
+                radial-gradient(ellipse at 80% 35%, rgba(165,243,107,0.09), transparent 35%),
+                radial-gradient(ellipse at 10% 80%, rgba(165,243,107,0.04), transparent 35%);
+        }
 
-.hero-buttons {
-  display: flex;
-  gap: 14px;
-  margin-top: 38px;
-  flex-wrap: wrap;
-}
+        .hero-content {
+            max-width: 850px;
+        }
 
-.btn {
-  padding: 16px 25px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: .3s;
-}
+        .hero-label {
+            color: var(--accent);
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
 
-.btn-primary {
-  background: var(--accent);
-  color: #10140c;
-}
+        .hero h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(48px, 8vw, 94px);
+            line-height: 1.05;
+            letter-spacing: -5px;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 35px #a5f36b30;
-}
+        .hero h1 span {
+            color: var(--accent);
+        }
 
-.btn-secondary {
-  border: 1px solid #ffffff35;
-}
+        .hero-description {
+            max-width: 550px;
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
 
-.btn-secondary:hover { background: #ffffff12; }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-.hero-bottom {
-  margin-top: 100px;
-  display: flex;
-  gap: 60px;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 1px;
-}
+        .button {
+            display: inline-block;
+            padding: 16px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: .3s;
+        }
 
-.hero-bottom strong {
-  display: block;
-  color: white;
-  font-size: 24px;
-  margin-bottom: 5px;
-}
+        .button-primary {
+            background: var(--accent);
+            color: #090b0e;
+        }
 
-section { padding: 110px 0; }
+        .button-primary:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
 
-.section-label {
-  color: var(--accent);
-  font-size: 11px;
-  letter-spacing: 3px;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
+        .button-secondary {
+            border: 1px solid var(--border);
+            color: white;
+        }
 
-.section-title {
-  font-family: 'Manrope', sans-serif;
-  font-size: clamp(35px, 5vw, 55px);
-  letter-spacing: -2px;
-  margin-bottom: 20px;
-}
+        .button-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
 
-.section-description {
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 550px;
-}
+        .hero-bottom {
+            position: absolute;
+            bottom: 35px;
+            left: 0;
+            width: 100%;
+            color: #59615b;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
 
-.projects { background: #0d1014; }
+        /* WSPÓLNE SEKCJE */
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  margin-top: 55px;
-}
+        section {
+            padding: 120px 0;
+        }
 
-.project {
-  background: var(--panel);
-  border: 1px solid #ffffff12;
-  border-radius: 9px;
-  overflow: hidden;
-  transition: .35s;
-}
+        .section-label {
+            color: var(--accent);
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
 
-.project:hover {
-  transform: translateY(-7px);
-  border-color: #a5f36b55;
-}
+        .section-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(35px, 5vw, 58px);
+            line-height: 1.15;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
 
-.project-image {
-  height: 280px;
-  overflow: hidden;
-  background: #171d22;
-}
+        .section-description {
+            color: var(--muted);
+            line-height: 1.8;
+            max-width: 600px;
+            font-size: 16px;
+        }
 
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: .5s;
-}
+        /* PROJEKTY */
 
-.project:hover img { transform: scale(1.04); }
+        .projects {
+            background: #0d1014;
+        }
 
-.project-info { padding: 27px; }
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 55px;
+        }
 
-.project-number {
-  color: var(--accent);
-  font-size: 11px;
-  letter-spacing: 2px;
-}
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
 
-.project-info h3 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 25px;
-  margin: 12px 0;
-}
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: .35s;
+        }
 
-.project-info p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 22px;
-}
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(165,243,107,0.5);
+        }
 
-.project-link {
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 700;
-}
+        .project-image {
+            height: 230px;
+            overflow: hidden;
+            background: #171d21;
+        }
 
-.project-link:hover { text-decoration: underline; }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
+        .project-card:hover .project-image img {
+            transform: scale(1.06);
+        }
 
-.about-box {
-  background: linear-gradient(135deg, #171f1a, #11151a);
-  border: 1px solid #a5f36b25;
-  border-radius: 10px;
-  padding: 40px;
-}
+        .project-info {
+            padding: 25px;
+        }
 
-.about-box .big {
-  font-family: 'Manrope', sans-serif;
-  font-size: 54px;
-  font-weight: 800;
-  color: var(--accent);
-}
+        .project-category {
+            color: var(--accent);
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 13px;
+            font-weight: 700;
+        }
 
-.about-box p {
-  color: var(--muted);
-  line-height: 1.8;
-  margin-top: 15px;
-}
+        .project-info h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
 
-.about-text p {
-  color: var(--muted);
-  line-height: 1.9;
-  margin-top: 20px;
-}
+        .project-info p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
 
-.contact {
-  text-align: center;
-  background: #0d1014;
-}
+        .project-link {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+        }
 
-.contact .section-description {
-  margin: 0 auto;
-}
+        .project-link:hover {
+            color: white;
+        }
 
-.email-link {
-  display: inline-block;
-  margin-top: 35px;
-  color: var(--accent);
-  font-family: 'Manrope', sans-serif;
-  font-size: clamp(19px, 4vw, 30px);
-  font-weight: 700;
-  border-bottom: 1px solid #a5f36b55;
-  padding-bottom: 8px;
-  transition: .3s;
-}
+        /* O MNIE */
 
-.email-link:hover {
-  color: white;
-  border-color: white;
-}
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+        }
 
-.email-caption {
-  color: var(--muted);
-  font-size: 13px;
-  margin-top: 15px;
-}
+        .about-text {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.9;
+            margin-top: 20px;
+        }
 
-footer {
-  padding: 30px 0;
-  border-top: 1px solid #ffffff12;
-  color: var(--muted);
-  font-size: 12px;
-}
+        .about-box {
+            border: 1px solid var(--border);
+            background: linear-gradient(145deg, #141a17, #101316);
+            padding: 45px;
+            border-radius: 8px;
+        }
 
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
+        .about-box h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
 
-@media(max-width: 750px) {
-  .nav-links { display: none; }
-  .hero { min-height: 650px; }
-  h1 { letter-spacing: -2px; }
-  .hero-bottom { gap: 30px; margin-top: 65px; }
-  .project-grid, .about-grid { grid-template-columns: 1fr; }
-  .about-grid { gap: 35px; }
-  section { padding: 80px 0; }
-  .project-image { height: 230px; }
-  .footer-inner { flex-direction: column; }
-}
-</style>
+        .about-box p {
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .stat-number {
+            color: var(--accent);
+            font-family: 'Manrope', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* KONTAKT */
+
+        .contact {
+            background:
+                radial-gradient(ellipse at 80% 50%, rgba(165,243,107,0.08), transparent 45%),
+                #0d1014;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-content {
+            max-width: 750px;
+        }
+
+        .email-link {
+            display: inline-block;
+            margin-top: 35px;
+            color: var(--accent);
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(19px, 4vw, 30px);
+            font-weight: 700;
+            border-bottom: 1px solid #a5f36b55;
+            padding-bottom: 8px;
+            transition: .3s;
+        }
+
+        .email-link:hover {
+            color: white;
+            border-color: white;
+        }
+
+        .email-caption {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 18px;
+        }
+
+        /* STOPKA */
+
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-copy {
+            color: #69716b;
+            font-size: 12px;
+        }
+
+        .footer-logo {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        /* TELEFONY I TABLETY */
+
+        @media (max-width: 850px) {
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .projects-header {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                height: 75px;
+            }
+
+            .nav-links {
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .nav-contact {
+                padding: 9px 12px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .hero {
+                min-height: 680px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            section {
+                padding: 85px 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                height: 220px;
+            }
+
+            .about-box {
+                padding: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container">
-    <nav>
-      <a href="#" class="logo">MODERN<span>WEB.</span></a>
+    <!-- NAWIGACJA -->
 
-      <div class="nav-links">
-        <a href="#projekty">Projekty</a>
-        <a href="#o-mnie">O mnie</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">MODERN<span>WEB</span></a>
 
-      <a href="#kontakt" class="nav-contact">Współpraca ↗</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-
-      <div class="eyebrow">MODERN WEB DESIGN STUDIO</div>
-
-      <h1>
-        Strony, które<br>
-        robią <span>wrażenie.</span>
-      </h1>
-
-      <p class="hero-description">
-        Projektuję nowoczesne strony internetowe, które pomagają
-        firmom budować profesjonalny wizerunek w sieci.
-        Minimalistyczny design, dopracowane detale i funkcjonalność.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#projekty" class="btn btn-primary">Zobacz projekty ↗</a>
-        <a href="#kontakt" class="btn btn-secondary">Porozmawiajmy</a>
-      </div>
-
-      <div class="hero-bottom">
-        <div>
-          <strong>03</strong>
-          KONCEPTY DEMONSTRACYJNE
+                <div class="nav-links">
+                    <a href="#projekty">Projekty</a>
+                    <a href="#o-mnie">O mnie</a>
+                    <a href="#kontakt" class="nav-contact">Kontakt ↗</a>
+                </div>
+            </nav>
         </div>
-        <div>
-          <strong>100%</strong>
-          ZAANGAŻOWANIA
+    </header>
+
+    <!-- GŁÓWNA SEKCJA -->
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    NOWOCZESNE STRONY INTERNETOWE
+                </div>
+
+                <h1>
+                    Strony, które<br>
+                    robią <span>wrażenie.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Tworzę nowoczesne i estetyczne strony internetowe,
+                    które pomagają firmom wyróżnić się w internecie
+                    i budować profesjonalny wizerunek.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projekty" class="button button-primary">
+                        Zobacz projekty ↗
+                    </a>
+
+                    <a href="#kontakt" class="button button-secondary">
+                        Skontaktuj się
+                    </a>
+                </div>
+
+            </div>
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-<section class="projects" id="projekty">
-  <div class="container">
-
-    <div class="section-label">MOJE PROJEKTY / 01—03</div>
-    <h2 class="section-title">Wybrane projekty.</h2>
-
-    <p class="section-description">
-      Każdy projekt to inna branża, inny charakter i indywidualne
-      podejście do prezentacji marki.
-    </p>
-
-    <div class="project-grid">
-
-      <article class="project">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=85" alt="Salon barberski">
+        <div class="hero-bottom">
+            <div class="container">
+                DESIGN / TECHNOLOGIA / NOWOCZESNOŚĆ
+            </div>
         </div>
-        <div class="project-info">
-          <div class="project-number">01 / BEAUTY & STYLE</div>
-          <h3>NOIR — Barber Club</h3>
-          <p>Elegancka koncepcja strony dla salonu barberskiego. Ciemna estetyka i luksusowe detale.</p>
-          <a class="project-link" href="https://michallo280.github.io/noir-barber/" target="_blank" rel="noopener">Zobacz stronę ↗</a>
+    </section>
+
+    <!-- PROJEKTY -->
+
+    <section class="projects" id="projekty">
+        <div class="container">
+
+            <div class="projects-header">
+                <div>
+                    <div class="section-label">
+                        MOJE REALIZACJE / 01
+                    </div>
+
+                    <h2 class="section-title">
+                        Wybrane projekty.
+                    </h2>
+
+                    <p class="section-description">
+                        Poznaj przykładowe projekty stron internetowych
+                        przygotowane w różnych branżach.
+                    </p>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- NOIR -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85"
+                            alt="Nowoczesny salon barberski"
+                        >
+                    </div>
+
+                    <div class="project-info">
+                        <div class="project-category">
+                            BARBER SHOP
+                        </div>
+
+                        <h3>NOIR — Barber Club</h3>
+
+                        <p>
+                            Elegancki projekt strony dla salonu
+                            barberskiego. Ciemna kolorystyka i nowoczesny design.
+                        </p>
+
+                        <a
+                            href="https://michallo280.github.io/noir-barber/"
+                            target="_blank"
+                            class="project-link"
+                        >
+                            Zobacz projekt ↗
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- ATELIER -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=85"
+                            alt="Samochód po detailingu"
+                        >
+                    </div>
+
+                    <div class="project-info">
+                        <div class="project-category">
+                            AUTO DETAILING
+                        </div>
+
+                        <h3>ATELIER — Detailing</h3>
+
+                        <p>
+                            Nowoczesna strona dla studia detailingu,
+                            podkreślająca jakość i profesjonalizm usług.
+                        </p>
+
+                        <a
+                            href="https://michallo280.github.io/atelier-detailing/"
+                            target="_blank"
+                            class="project-link"
+                        >
+                            Zobacz projekt ↗
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- OLIVA -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85"
+                            alt="Elegancka restauracja"
+                        >
+                    </div>
+
+                    <div class="project-info">
+                        <div class="project-category">
+                            RESTAURACJA
+                        </div>
+
+                        <h3>OLIVA — Restaurant</h3>
+
+                        <p>
+                            Stylowy projekt dla restauracji,
+                            łączący estetykę z przejrzystą prezentacją oferty.
+                        </p>
+
+                        <a
+                            href="https://michallo280.github.io/oliva-restaurant/"
+                            target="_blank"
+                            class="project-link"
+                        >
+                            Zobacz projekt ↗
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-      </article>
+    </section>
 
-      <article class="project">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1000&q=85" alt="Auto detailing">
+    <!-- O MNIE -->
+
+    <section id="o-mnie">
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div>
+                    <div class="section-label">
+                        KILKA SŁÓW O MNIE / 02
+                    </div>
+
+                    <h2 class="section-title">
+                        Internet to miejsce,
+                        w którym zaczyna się
+                        pierwsze wrażenie.
+                    </h2>
+
+                    <p class="about-text">
+                        MODERNWEB powstał z pasji do tworzenia
+                        nowoczesnych stron internetowych.
+                        Moim celem jest projektowanie witryn,
+                        które dobrze wyglądają, są przejrzyste
+                        i pomagają firmom profesjonalnie
+                        prezentować się w sieci.
+                    </p>
+
+                    <p class="about-text">
+                        Stawiam na estetykę, dopracowane detale
+                        oraz indywidualne podejście do każdego projektu.
+                    </p>
+                </div>
+
+                <div class="about-box">
+
+                    <h3>MODERNWEB</h3>
+
+                    <p>
+                        Nowoczesne rozwiązania internetowe
+                        dla firm, lokalnych biznesów i osób,
+                        które chcą rozwijać swoją obecność w sieci.
+                    </p>
+
+                    <div class="stats">
+
+                        <div>
+                            <div class="stat-number">03</div>
+                            <div class="stat-label">
+                                KONCEPTY DEMONSTRACYJNE
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">
+                                ZAANGAŻOWANIA
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-        <div class="project-info">
-          <div class="project-number">02 / AUTOMOTIVE</div>
-          <h3>ATELIER — Auto Detailing</h3>
-          <p>Nowoczesna prezentacja studia detailingu z naciskiem na jakość i profesjonalizm.</p>
-          <a class="project-link" href="https://michallo280.github.io/atelier-detailing/" target="_blank" rel="noopener">Zobacz stronę ↗</a>
+    </section>
+
+    <!-- KONTAKT -->
+
+    <section class="contact" id="kontakt">
+        <div class="container">
+
+            <div class="contact-content">
+
+                <div class="section-label">
+                    ZACZNIJMY WSPÓŁPRACĘ / 03
+                </div>
+
+                <h2 class="section-title">
+                    Masz pomysł na<br>
+                    nową stronę?
+                </h2>
+
+                <p class="section-description">
+                    Stwórzmy razem nowoczesną obecność Twojej firmy
+                    w internecie. Skontaktuj się ze mną i opowiedz
+                    o swoim projekcie.
+                </p>
+
+                <a
+                    class="email-link"
+                    href="mailto:modern.web.cre@gmail.com"
+                >
+                    modern.web.cre@gmail.com ↗
+                </a>
+
+                <p class="email-caption">
+                    Mój adres kontaktowy to modern.web.cre@gmail.com
+                </p>
+
+            </div>
+
         </div>
-      </article>
+    </section>
 
-      <article class="project">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85" alt="Elegancka restauracja">
+    <!-- STOPKA -->
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-logo">
+                    MODERN<span>WEB</span>
+                </div>
+
+                <div class="footer-copy">
+                    © 2026 MODERNWEB. Wszelkie prawa zastrzeżone.
+                </div>
+
+                <a href="#" class="footer-copy">
+                    Powrót na górę ↑
+                </a>
+
+            </div>
+
         </div>
-        <div class="project-info">
-          <div class="project-number">03 / FOOD & HOSPITALITY</div>
-          <h3>OLIVA — Restauracja</h3>
-          <p>Stylowa strona restauracji z prezentacją menu, klimatu lokalu i oferty.</p>
-          <a class="project-link" href="https://michallo280.github.io/oliva-restaurant/" target="_blank" rel="noopener">Zobacz stronę ↗</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section id="o-mnie">
-  <div class="container about-grid">
-
-    <div class="about-box">
-      <div class="big">MODERN<br>WEB.</div>
-      <p>Nowoczesny design. Przemyślane rozwiązania. Profesjonalny wizerunek.</p>
-    </div>
-
-    <div class="about-text">
-      <div class="section-label">KIM JESTEM / 04</div>
-      <h2 class="section-title">Dobry wizerunek zaczyna się w internecie.</h2>
-
-      <p>
-        MODERNWEB to moje miejsce do tworzenia nowoczesnych
-        stron internetowych dla firm i lokalnych biznesów.
-      </p>
-
-      <p>
-        Stawiam na estetykę, czytelność i indywidualne podejście
-        do każdego projektu. Chcę, aby każda strona wyróżniała
-        markę i dobrze prezentowała jej ofertę.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section class="contact" id="kontakt">
-  <div class="container">
-
-    <div class="section-label">ZACZNIJMY WSPÓŁPRACĘ / 05</div>
-
-    <h2 class="section-title">Masz pomysł na<br>nową stronę?</h2>
-
-    <p class="section-description">
-      Stwórzmy razem nowoczesną obecność Twojej firmy w internecie.
-      Napisz do mnie i opowiedz o swoim projekcie.
-    </p>
-
-    <a class="email-link" href="mailto:modern.web.cre@gmail.com">
-      modern.web.cre@gmail.com ↗
-    </a>
-
-    <p class="email-caption">
-      Kliknij adres, aby napisać wiadomość.
-    </p>
-
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <div class="logo">MODERN<span>WEB.</span></div>
-    <div>© 2026 MODERNWEB. Wszystkie prawa zastrzeżone.</div>
-    <div>Designed with purpose.</div>
-  </div>
-</footer>
+    </footer>
 
 </body>
 </html>
